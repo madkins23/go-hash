@@ -67,14 +67,14 @@ var testCases = []testCase{
 
 func testCaseLoop(t *testing.T, testData string,
 	testWriter func(t *testing.T, h16 hash.Hash16, testData string, name string),
-	testChecker func(t *testing.T, result uint16, tc testCase, name string)) {
+	testChecker func(t *testing.T, result uint16, tc testCase)) {
 	var tc testCase
 	for _, tc = range testCases {
 		h16 := New(tc.params)
 		require.NotNil(t, h16, "%s make hash", tc.params.Name)
 		testWriter(t, h16, testData, tc.params.Name)
 		crc := h16.Sum16()
-		testChecker(t, crc, tc, tc.params.Name)
+		testChecker(t, crc, tc)
 	}
 }
 
@@ -86,15 +86,15 @@ func testWriterData(t *testing.T, h16 hash.Hash16, testData string, name string)
 
 func TestCheckerStandard(t *testing.T) {
 	testCaseLoop(t, testStandard, testWriterData,
-		func(t *testing.T, result uint16, tc testCase, name string) {
-			assert.Equal(t, tc.standard, result, "%s wrong CRC result", name)
+		func(t *testing.T, result uint16, tc testCase) {
+			assert.Equal(t, tc.standard, result, "%s wrong CRC result", tc.params.Name)
 		})
 }
 
 func TestCheckerLoremIpsum(t *testing.T) {
 	testCaseLoop(t, testLoremIpsum, testWriterData,
-		func(t *testing.T, result uint16, tc testCase, name string) {
-			assert.Equal(t, tc.loremIpsum, result, "%s wrong CRC result", name)
+		func(t *testing.T, result uint16, tc testCase) {
+			assert.Equal(t, tc.loremIpsum, result, "%s wrong CRC result", tc.params.Name)
 		})
 }
 
@@ -106,8 +106,8 @@ func TestCheckerFileResult(t *testing.T) {
 			_, err = io.Copy(h16, file)
 			assert.NoError(t, err, "%s copy from file %s", name, fileName)
 			_ = file.Close()
-		}, func(t *testing.T, result uint16, tc testCase, name string) {
-			assert.Equal(t, tc.fileResult, result, "%s wrong CRC result", name)
+		}, func(t *testing.T, result uint16, tc testCase) {
+			assert.Equal(t, tc.fileResult, result, "%s wrong CRC result", tc.params.Name)
 		})
 }
 
