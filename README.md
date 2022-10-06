@@ -2,6 +2,12 @@
 
 Wrap smaller hash libraries with interfaces similar to those in standard library hash interface.
 
+See the [source](https://github.com/madkins23/go-hash)
+or [godoc](https://godoc.org/github.com/madkins23/go-hash) for more detailed documentation.
+
+![GitHub](https://img.shields.io/github/license/madkins23/go-hash)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/madkins23/go-hash)
+
 ## Background
 
 The Go standard library defines the [`hash`](https://pkg.go.dev/hash) package.
