@@ -1,4 +1,4 @@
-module go-hash
+module github.com/madkins23/go-hash
 
 go 1.18
 

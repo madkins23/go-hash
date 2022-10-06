@@ -3,7 +3,7 @@ package crc16
 import (
 	"github.com/sigurn/crc16"
 
-	"go-hash/pkg/hash"
+	"github.com/madkins23/go-hash/pkg/hash"
 )
 
 // Size is the size of a CRC-16 checksum in bytes.

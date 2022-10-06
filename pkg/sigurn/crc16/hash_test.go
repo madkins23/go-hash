@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"go-hash/pkg/hash"
+	"github.com/madkins23/go-hash/pkg/hash"
 )
 
 const fileLoremIpsum = "../../../testdata/lorem-ipsum.txt"
