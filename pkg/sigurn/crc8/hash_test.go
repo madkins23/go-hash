@@ -105,8 +105,6 @@ func ExampleHash8() {
 			fmt.Printf("%03d %s\n", h8.Sum8(), fileLoremIpsum)
 		}
 		_ = file.Close()
-	} else {
-		fmt.Printf("Unable to open file: %s\n", err.Error())
 	}
 	// Output:
 	// 192 ../../../testdata/lorem-ipsum.txt

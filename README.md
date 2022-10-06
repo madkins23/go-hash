@@ -12,7 +12,8 @@ and [`Hash64`](https://pkg.go.dev/hash#Hash64).
 Subdirectories provide implementations of these interfaces for specific hash functions
 as well as the hashing function used by Go maps.
 
-One feature of the `Hash` interface is that it derives from `io.Writer`.
+One nice feature (perhapse _the_ nice feature)
+of the `Hash` interface is that it derives from `io.Writer`.
 This allows types that implement `Hash` to be used with
 [`io.Copy()`](https://pkg.go.dev/io#Copy).
 
@@ -25,5 +26,22 @@ This project provides missing interfaces:
 
 and wrappers around pre-existing hash libraries that implement these interfaces.
 
-* `github.com/madkins23/go-hash/sigurn/ccr8`
-* `github.com/madkins23/go-hash/sigurn/ccr16`
+* `github.com/madkins23/go-hash/pkg/sigurn/ccr8`
+* `github.com/madkins23/go-hash/pkg/sigurn/ccr16`
+
+## Usage
+
+    import (
+        crc8hash "github.com/madkins23/go-hash/pkg/sigurn/crc8"
+        "github.com/sigurn/crc8" // needed to choose CRC variant
+    )
+
+    const someFile = "someFile.ext"
+
+    if file, err := os.Open(someFile); err == nil {
+        h8 := crc8hash.New(crc8.CRC8)
+        if _, err := io.Copy(h8, file); err == nil {
+            fmt.Printf("%03d %s\n", h8.Sum8(), someFile)
+        }
+        _ = file.Close()
+    }
