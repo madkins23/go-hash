@@ -24,3 +24,6 @@ This project provides missing interfaces:
 * `Hash8`
 
 and wrappers around pre-existing hash libraries that implement these interfaces.
+
+* `github.com/madkins23/sigurn/ccr8`
+* `github.com/madkins23/sigurn/ccr16`
