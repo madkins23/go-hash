@@ -25,5 +25,5 @@ This project provides missing interfaces:
 
 and wrappers around pre-existing hash libraries that implement these interfaces.
 
-* `github.com/madkins23/sigurn/ccr8`
-* `github.com/madkins23/sigurn/ccr16`
+* `github.com/madkins23/go-hash/sigurn/ccr8`
+* `github.com/madkins23/go-hash/sigurn/ccr16`
