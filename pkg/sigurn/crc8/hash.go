@@ -16,6 +16,9 @@ type digest struct {
 
 // New returns a new hash.Hash8 instance for the specified CRC8 parameters.
 // The params determine the polynomial attributes used in the CRC calculation.
+// The Reset() method is called on the new Hash8 object as part of this function,
+// so it is fully initialized and ready for use.
+// Reset() can be used later in order to reuse the Hash8 object.
 func New(params crc8.Params) hash.Hash8 {
 	return NewFromTable(crc8.MakeTable(params))
 }
@@ -23,6 +26,9 @@ func New(params crc8.Params) hash.Hash8 {
 // NewFromTable returns a new hash.Hash8 instance from the specified CRC8 table.
 // The table contains the polynomial attributes used in the CRC calculation.
 // This method can be used directly in order to reuse a single table over multiple calculations.
+// The Reset() method is called on the new Hash8 object as part of this function,
+// so it is fully initialized and ready for use.
+// Reset() can be used later in order to reuse the Hash8 object.
 // Note that the CRC table is not reentrant, reuse must occur in a single execution thread.
 func NewFromTable(table *crc8.Table) hash.Hash8 {
 	d := &digest{table: table}

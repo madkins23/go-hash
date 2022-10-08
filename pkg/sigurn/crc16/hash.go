@@ -16,6 +16,9 @@ type digest struct {
 
 // New returns a new hash.Hash16 instance for the specified CRC16 parameters.
 // The params determine the polynomial attributes used in the CRC calculation.
+// The Reset() method is called on the new Hash16 object as part of this function,
+// so it is fully initialized and ready for use.
+// Reset() can be used later in order to reuse the Hash16 object.
 func New(params crc16.Params) hash.Hash16 {
 	return NewFromTable(crc16.MakeTable(params))
 }
@@ -23,6 +26,9 @@ func New(params crc16.Params) hash.Hash16 {
 // NewFromTable returns a new hash.Hash16 instance from the specified CRC16 table.
 // The table contains the polynomial attributes used in the CRC calculation.
 // This method can be used directly in order to reuse a single table over multiple calculations.
+// The Reset() method is called on the new Hash16 object as part of this function,
+// so it is fully initialized and ready for use.
+// Reset() can be used later in order to reuse the Hash16 object.
 // Note that the CRC table is not reentrant, reuse must occur in a single execution thread.
 func NewFromTable(table *crc16.Table) hash.Hash16 {
 	d := &digest{table: table}
