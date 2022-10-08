@@ -7,6 +7,7 @@ or [godoc](https://godoc.org/github.com/madkins23/go-hash) for more detailed doc
 
 ![GitHub](https://img.shields.io/github/license/madkins23/go-hash)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/madkins23/go-hash)
+[![Go Reference](https://pkg.go.dev/badge/github.com/madkins23/go-hash.svg)](https://pkg.go.dev/github.com/madkins23/go-hash)
 
 ## Background
 
