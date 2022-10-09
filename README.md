@@ -5,6 +5,7 @@ Wrap smaller hash libraries with interfaces similar to those in standard library
 See the [source](https://github.com/madkins23/go-hash)
 or [godoc](https://godoc.org/github.com/madkins23/go-hash) for more detailed documentation.
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/madkins23/go-hash)](https://goreportcard.com/report/github.com/madkins23/go-hash)
 ![GitHub](https://img.shields.io/github/license/madkins23/go-hash)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/madkins23/go-hash)
 [![Go Reference](https://pkg.go.dev/badge/github.com/madkins23/go-hash.svg)](https://pkg.go.dev/github.com/madkins23/go-hash)
